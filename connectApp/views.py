@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404, HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 from .forms import PostForm
 from .models import Profile, Community, Post, Feed, Message, Profile
 from rest_framework import generics, permissions
@@ -72,7 +75,7 @@ def search(request):
         return HttpResponse('Empty query')
     communities = Community.objects.filter(name__icontains=query)
     return render(request, 'search.html', {'communities': communities})
-
+#---------- MÉTODOS ACIMA UTILIZADOS NA MODELAGEM QUANDO AINDA NÃO HÁ FRONT, APENAS PARA TESTES, DEVERÃO SER DESCONSIDERADOS EM BREVE
 
 class ProfileList(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
@@ -132,3 +135,10 @@ class FeedUser(generics.ListCreateAPIView):
         queryset = Post.objects.filter(id__in=post_ids).order_by('-timestamp')
         return queryset
 
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key})
