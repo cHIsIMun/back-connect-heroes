@@ -1,6 +1,6 @@
 ##Backend - ConnectHeroes
 
-# Instalação
+## Instalação
 
 1. Clone o repositório em sua máquina local usando o seguinte comando:
 
