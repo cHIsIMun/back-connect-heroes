@@ -1,4 +1,4 @@
-##Backend - ConnectHeroes
+# Backend - ConnectHeroes
 
 ## Instalação
 
@@ -26,7 +26,7 @@
    pip install -r requirements.txt
    ```
 
-# Utilização
+## Utilização
 
 1. Rode o servidor de desenvolvimento do Django usando o seguinte comando:
 
