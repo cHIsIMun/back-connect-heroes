@@ -1,45 +1,36 @@
-# Backend - ConnectHeroes
+# back-connect-heroes
 
-## Instalação
+🇧🇷 Português | 🇺🇸 [English](README.en.md)
 
-1. Clone o repositório em sua máquina local usando o seguinte comando:
+> Backend Django REST do projeto Connect Heroes (API standalone). Versão completa e integrada vive em [connect-heroes](https://github.com/cHIsIMun/connect-heroes).
 
-   ```
-   git clone https://github.com/cHIsIMun/back-connect-heroes.git
-   ```
+## Visão geral
 
-2. Crie uma virtualenv para o projeto usando o seguinte comando:
+Servidor de API (Django REST Framework) do **Connect Heroes** — a rede social com posts, comunidades, conexões e mensagens. Este repositório contém apenas o backend; a versão full-stack (back + front) está em [connect-heroes](https://github.com/cHIsIMun/connect-heroes).
 
-   ```
-   python3 -m venv myvenv
-   ```
+## Funcionalidades (API)
 
-3. Ative a virtualenv usando o seguinte comando:
+- Autenticação por token.
+- Endpoints de posts (com imagens), likes e comentários.
+- Perfis de usuário, comunidades e mensagens diretas.
 
-   ```
-   source myvenv/bin/activate
-   ```
+## Stack
 
-4. Instale as dependências do projeto com o seguinte comando:
+Python · Django 4.2 · Django REST Framework · Pillow · SQLite.
 
-   ```
-   pip install -r requirements.txt
-   ```
+## Como executar
 
-## Utilização
+```bash
+python3 -m venv myvenv && source myvenv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver       # http://localhost:8000
+```
 
-1. Rode o servidor de desenvolvimento do Django usando o seguinte comando:
+## Estado do projeto
 
-   ```
-   python manage.py runserver
-   ```
+Repositório de backend (versão base). Para o projeto completo e mais atual, veja [connect-heroes](https://github.com/cHIsIMun/connect-heroes).
 
-2. Abra o navegador e acesse o endereço `http://localhost:8000/`.
+## Licença
 
-3. Para acessar a área de administração do Django, acesse o endereço `http://localhost:8000/admin/`.
-
-4. Para parar o servidor de desenvolvimento do Django, pressione `Ctrl+C` no terminal onde ele está rodando.
-
-## Mais informações
-
-Para mais informações sobre como desenvolver aplicações web com o Django, consulte a [documentação oficial do Django](https://docs.djangoproject.com/).
+Este projeto ainda não declara uma licença; até que uma seja adicionada, todos os direitos são reservados ao autor.
